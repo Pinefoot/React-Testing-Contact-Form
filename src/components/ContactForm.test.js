@@ -17,14 +17,14 @@ test("app has inputs visible", () => {
 });
 
 
-test('form submit populates the requirements', ()=>{
+test('form submit populates the requirements', async()=>{
     const {getByLabelText, getByText, getByTestId} = render(<ContactForm/>);
-    //const firstNameInput = getByLabelText(/)/i);
+    const firstNameInput = getByLabelText(/First Name/i);
     const lastNameInput = getByLabelText(/Last Name*/i);
     const emailInput = getByLabelText(/email/i);
     const messageInput = getByLabelText(/message/i);
 
-    //fireEvent.change(firstNameInput, {target: {value: 'Al'}});
+    fireEvent.change(firstNameInput, {target: {value: 'Al'}});
     fireEvent.change(lastNameInput, {target:{value:'LastName'}});
     fireEvent.change(emailInput, {target:{value: 'Email@email.com'}});
     fireEvent.change(messageInput, {target:{value:'This is a message for testing'}});
